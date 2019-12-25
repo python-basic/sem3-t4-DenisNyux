@@ -1,8 +1,14 @@
 import json
+import doctest
 
 
 def list_to_prettystring(list_of_lists: list) -> str:
-    """Возвращает список отформатированных под таблицу строк"""
+    """
+    >>> type(list_to_prettystring([[], []]))
+    <class 'str'>
+    >>> type(list_to_prettystring([[1, 2], [3, '4']]))
+    <class 'str'>
+    """
     new_list = list()
     for each_list in list_of_lists:
         new_list.append(list(map(lambda x: str(x).center(30, ' '), each_list)))
@@ -12,7 +18,10 @@ def list_to_prettystring(list_of_lists: list) -> str:
 
 
 def make_table(dcts: list) -> str:
-    """Возвращает список строк из списка словарей"""
+    """
+    >>> type(make_table([{'a': '1'}, {'b': '2'}]))
+    <class 'str'>
+    """
     table = list()
     # Извлекаем первую строчку в которой будут ключи
     first_line = list(dcts[0].keys())
@@ -24,6 +33,10 @@ def make_table(dcts: list) -> str:
 
 
 def get_from_file():
+    """
+    >>> type(get_from_file()) == type(dict())
+    <class 'dict'>
+    """
     with open('MOCK_DATA.json') as js_file:
         dicts = json.loads(''.join(js_file.readlines()))
     return dicts
@@ -37,3 +50,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    doctest.testmod()

@@ -1,6 +1,9 @@
 import main
 
 
+print(main.list_to_prettystring([[], []]))
+
+
 try:
     assert type(main.make_table([{'a': '1'}, {'b': '2'}])) == type(str())
 except:
