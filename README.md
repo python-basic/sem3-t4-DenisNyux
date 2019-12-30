@@ -185,3 +185,5 @@ class TestTableMethods(unittest.TestCase):
 TestTableMethods()
 
 ```
+
+![Alt text](/results/v2.png)
