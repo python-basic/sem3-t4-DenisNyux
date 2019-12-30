@@ -2,6 +2,7 @@ import json
 
 
 def list_to_prettystring(list_of_lists: list) -> str:
+    """Возвращает список отформатированных под таблицу строк"""
     new_list = list()
     for each_list in list_of_lists:
         new_list.append(list(map(lambda x: str(x).center(30, ' '), each_list)))
@@ -11,6 +12,7 @@ def list_to_prettystring(list_of_lists: list) -> str:
 
 
 def make_table(dcts: list) -> str:
+    """Возвращает список строк из списка словарей"""
     table = list()
     # Извлекаем первую строчку в которой будут ключи
     first_line = list(dcts[0].keys())
@@ -31,13 +33,6 @@ def main():
     js_dicts = get_from_file()
     table = make_table(js_dicts)
     print(table)
-
-
-def tests():
-    assert type(main.make_table([{'a': '1'}, {'b': '2'}])) == type(str())
-    assert type(main.list_to_prettystring([[1, 2], [3, 4]])) == type(str())
-    assert type(main.list_to_prettystring([[1, 2], [3, '4']])) == type(str())
-    assert type(main.get_from_file()) == type(dict())
 
 
 if __name__ == '__main__':
